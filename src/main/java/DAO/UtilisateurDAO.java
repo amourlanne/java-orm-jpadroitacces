@@ -49,9 +49,7 @@ public class UtilisateurDAO {
     }
 
     public boolean isAutorise(String numeroBadge, String droit) {
-        long c = entityManager.createQuery("select count(u) from Utilisateur u join u.droits d "
-                + "where u.badge.numero = :numeroBadge "
-                + "and d.libelle = :libelle", Long.class)
+        long c = entityManager.createQuery("select count(u) from Utilisateur u join u.droits d where u.badge.numero = :numeroBadge and d.libelle = :libelle", Long.class)
                 .setParameter("numeroBadge", numeroBadge)
                 .setParameter("libelle", droit)
                 .getSingleResult();

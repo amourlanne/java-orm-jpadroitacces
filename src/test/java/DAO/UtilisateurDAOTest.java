@@ -65,5 +65,10 @@ class UtilisateurDAOTest extends JPAHibernateTest {
         assertNotNull(doe);
     }
 
+    @Test
+    void isAutorise() {
+        assertTrue(utilisateurDAO.isAutorise("XTC222", "connexion"));
+        assertFalse(utilisateurDAO.isAutorise("XTH999", "suppression"));
+    }
 
 }
